@@ -55,12 +55,14 @@ public class SharedDriver extends EventFiringWebDriver {
 		case "chrome":
 		case "CHROME":
 		default:
+			ChromeOptions chromeoptions = new ChromeOptions();
 			if (System.getProperty("os").equals("windows")) {
 				System.setProperty("webdriver.chrome.driver", "src/test/resources/Driver/chromedriver_Win.exe");
+				chromeoptions.addArguments("--start-maximized");
 			} else if (System.getProperty("os").equals("mac")) {
 				System.setProperty("webdriver.chrome.driver", "src/test/resources/Driver/chromedriver_mac");
+				chromeoptions.addArguments("--kiosk");
 			}
-			ChromeOptions chromeoptions = new ChromeOptions();
 			chromeoptions.setPageLoadStrategy(PageLoadStrategy.NONE);
 			chromeoptions.addArguments("--incognito");
 			chromeoptions.addArguments("enable-automation");
@@ -69,7 +71,6 @@ public class SharedDriver extends EventFiringWebDriver {
 			chromeoptions.addArguments("--disable-dev-shm-usage");
 			chromeoptions.addArguments("--disable-browser-side-navigation");
 			chromeoptions.addArguments("--disable-gpu");
-			chromeoptions.addArguments("--start-maximized");
 			chromeoptions.setAcceptInsecureCerts(true);
 			REAL_DRIVER = new ChromeDriver(chromeoptions);
 			break;
