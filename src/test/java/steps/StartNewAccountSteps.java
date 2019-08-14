@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import page.StartNewAccountPage;
-import utils.SharedDriver;
+import runner.SharedDriver;
 
 public class StartNewAccountSteps {
 	private StartNewAccountPage startNewAccountPage;

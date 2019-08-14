@@ -5,13 +5,12 @@ import org.openqa.selenium.WebDriver;
 
 import pageelements.AccountSummaryPageElements;
 import pageelements.LoginPageElements;
+import runner.SharedDriver;
 import utils.CUtil;
-import utils.SharedDriver;
 
 public class AccountSummaryPage {
 	private static WebDriver webDriver;
 	private AccountSummaryPageElements accountSummaryPageElements;
-	static boolean login = false;
 
 	public AccountSummaryPage(WebDriver webDriver) {
 		this.webDriver = webDriver;

@@ -7,7 +7,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import page.AccountSummaryPage;
 import page.LoginPage;
-import utils.SharedDriver;
+import runner.SharedDriver;
 
 public class AccountSummarySteps {
 	private AccountSummaryPage accountSummaryPage;

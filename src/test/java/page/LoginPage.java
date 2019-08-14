@@ -3,8 +3,8 @@ package page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageelements.LoginPageElements;
+import runner.SharedDriver;
 import utils.CUtil;
-import utils.SharedDriver;
 
 public class LoginPage {
 	private static WebDriver webDriver;

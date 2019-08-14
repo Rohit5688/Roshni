@@ -52,11 +52,35 @@ Scenario: Verify Individual Account- Via Plaid
 	
 	Then I should see "Question 10" 
 	Then I should see question as "I may have an unforeseen need to withdraw a significant amount of money from my account." 
-	When I select answer option as "There's no chance of that happening."
-			
+	When I select answer option as "There's no chance of that happening." 
+	
 	Then I should see "Question 11" 
 	Then I should see question as "Which would you choose?" 
-	When I select answer option as "50% chance of winning $15,000"
+	When I select answer option as "50% chance of winning $15,000" 
 	
-	Then I click Submit button	
+	Then I click Submit button 
+	Then I should be on Building Investment Profile Page 
+	
+	Then I should be on Current Model Page 
+	When I click on Select button Current Model page 
+	Then I should be on Terms and Condition Page 
+	
+	When I select Accpetance checkbox 
+	When I click on Next button Terms and Condition Page 
+	
+	Then I should see Open Your Account Page 
+	When I click on Next button Open Your Account Page 
+		
+	When I select Account Type as "Individual"
+	When I select option as "Growth Income" in "Investment Objective" dropdown 
+	When I select option as "Limited" in "Investment Experience" dropdown 
+	When I select option as "Medium" in "Risk Tolerance" dropdown 
+	When I select option as "25%" in "Tax Bracket" dropdown 
+	When I select option as "100001 to 200000" in "Annual Income (from all sources)" dropdown 
+	When I select option as "50001 to 100000" in "Liquid Net Worth (cash & liquid investments only)" dropdown 
+	When I select option as "200001 to 500000" in "Total Net Worth (excluding residence)" dropdown 
+	When I select option as "100001 to 200000" in "Annual Income (from all sources)" dropdown 
+	When I select option as "Short (Less than 3 years)" in "Time Horizon" dropdown 
+	When I select option as "Very Important" in "Liquidity Needs (The ability to quickly and easily convert all or a portion of the account assets into cash without experiencing significant loss)" dropdown 
+	
 	
