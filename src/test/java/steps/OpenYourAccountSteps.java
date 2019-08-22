@@ -32,9 +32,4 @@ public class OpenYourAccountSteps {
 		openYourAccountPage.select_ACCOUNT_TYPE(text);
 	}
 
-	@When("^I select option as \"([^\"]*)\" in \"([^\"]*)\" dropdown$")
-	public void i_select_option_as_in_dropdown(String text1, String text2) throws Throwable {
-		openYourAccountPage.select_VALUES_FROM_DROPDOWN(text1,text2);
-	}
-
 }

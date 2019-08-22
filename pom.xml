@@ -13,8 +13,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<cucumber.version>1.2.5</cucumber.version>
-		<selenium.version>2.31.0</selenium.version>
+		<cucumber.version>4.3.1</cucumber.version>
+		<selenium.version>3.12.0</selenium.version>
 		<junit.version>4.11</junit.version>
 	</properties>
 	<build>
@@ -25,8 +25,8 @@
 				<version>2.5.1</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -49,15 +49,17 @@
 							<argLine>-Dfile.encoding=UTF-8</argLine>
 							<useFile>false</useFile>
 							<includes>
-								<include>**/R_S01_12345_AT.class</include>
+								<include>**/Runner_AT.class</include>
 							</includes>
 							<testFailureIgnore>true</testFailureIgnore>
 							<systemPropertyVariables>
 								<browser>chrome</browser>
 								<os>windows</os>
 								<environment>QA</environment>
-								<osiris.qa.user>roshni.manda+13@trizic.com</osiris.qa.user>
+								<osiris.qa.user>roshni.manda+2@trizic.com</osiris.qa.user>
 								<osiris.qa.password>Test1234!!</osiris.qa.password>
+								<bank.qa.user>user_good</bank.qa.user>
+								<bank.qa.password>pass_good</bank.qa.password>
 							</systemPropertyVariables>
 						</configuration>
 					</execution>
@@ -90,33 +92,28 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>${junit.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-picocontainer</artifactId>
-			<version>4.3.1</version>
+			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-core</artifactId>
-			<version>4.3.1</version>
+			<version>${cucumber.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
-			<version>4.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.picocontainer</groupId>
-			<artifactId>picocontainer</artifactId>
-			<version>2.14.2</version>
+			<version>${cucumber.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-server</artifactId>
-			<version>3.12.0</version>
+			<version>${selenium.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -141,7 +138,7 @@
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>4.3.1</version>
+			<version>${cucumber.version}</version>
 		</dependency>
 	</dependencies>
 </project>

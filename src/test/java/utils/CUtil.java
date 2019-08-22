@@ -33,6 +33,8 @@ public class CUtil {
 
 	private final static int WAITING_TIME = 30;
 
+	public static int count = 0;
+
 	public static void setWebDriver(WebDriver _webDriver) {
 		webDriver = _webDriver;
 	}
@@ -245,9 +247,10 @@ public class CUtil {
 		try {
 			waitForVisibleElement(by);
 			javascript_highlight(by, "green", "dotted", 3);
-			boolean diplayed = webDriver.findElement(by).isDisplayed();
-			return diplayed;
+			boolean displayed = webDriver.findElement(by).isDisplayed();
+			return displayed;
 		} catch (NoSuchElementException | TimeoutException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -307,9 +310,30 @@ public class CUtil {
 			return false;
 	}
 
-	public static void selectDropdown(By locator,String option) {
-		Select select = new Select(webDriver.findElement(locator));
+	public static void selectDropdown(By by, String option) {
+		javascript_highlight(by, "blue", "dotted", 3);
+		waitForElement(by);
+		Select select = new Select(webDriver.findElement(by));
 		select.selectByVisibleText(option);
+	}
+
+	public static void switchFrame(String idOrName) {
+		WebDriverWait wait = new WebDriverWait(webDriver, WAITING_TIME);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(idOrName));
+	}
+
+	public static void switchFrameByIndex(int index) {
+		WebDriverWait wait = new WebDriverWait(webDriver, WAITING_TIME);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(index));
+	}
+	
+	public static void switchFrameByLocator(By by) {
+		WebDriverWait wait = new WebDriverWait(webDriver, WAITING_TIME);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(webDriver.findElement(by)));
+	}
+
+	public static void switchToTopFrame() {
+		webDriver.switchTo().defaultContent();
 	}
 
 }
