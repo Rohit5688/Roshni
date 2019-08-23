@@ -123,6 +123,7 @@ public class SharedDriver extends EventFiringWebDriver {
 	 * Embed a screenshot in test report if test is marked as failed
 	 */
 	public void embedScreenshot(Scenario scenario) {
+		CUtil.count = 0;
 		if (!takenScreenshot) {
 			scenario.write("Current Page URL is " + getCurrentUrl());
 			try {
