@@ -2,7 +2,6 @@ package steps;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import page.LinkBankAccountPage;
@@ -116,6 +115,45 @@ public class LinkBankAccountPageSteps {
 	public void i_click_on_Continue_button_for_specific_bank() {
 	    linkBankAccountPage.click_CONTINUE_BUTTON();
 	}
+	
+	@When("I click Link Account With Micro Deposits")
+	public void i_click_Link_Account_With_Micro_Deposits() {
+		linkBankAccountPage.click_LINK_ACCOUNT_WITH_MICRO_DEPOSITES_BUTTON();
+	}
 
+	@Then("I should see Link Bank Account with Micro Deposits")
+	public void i_should_see_Link_Bank_Account_with_Micro_Deposits() {
+		Assert.assertTrue(linkBankAccountPage.is_LINK_BANK_ACCOUNT_WITH_MICRO_DEPOSITS_LABLE_DISPLAYED());
+	}
+
+	@When("I type Bank Account Number as {string}")
+	public void i_type_Bank_Account_Number_as(String text) {
+	   linkBankAccountPage.type_BANK_ACCOUNT_NUMBER(text);
+	}
+
+	@When("I type Bank Routing Number as {string}")
+	public void i_type_Bank_Routing_Number_as(String text) {
+		linkBankAccountPage.type_BANK_ROUTING_NUMBER(text);
+	}
+
+	@When("I type Bank Account Owner Name as {string}")
+	public void i_type_Bank_Account_Owner_Name_as(String text) {
+		linkBankAccountPage.type_BANK_ACCOUNT_OWNER_NAME(text);
+	}
+
+	@When("I type Bank Account Nickname as {string}")
+	public void i_type_Bank_Account_Nickname_as(String text) {
+		linkBankAccountPage.type_BANK_ACCOUNT_NICK_NAME(text);
+	}
+
+	@When("I select option as {string} in {string} dropdown on Link Bank Account with Micro Deposits page")
+	public void i_select_option_as_in_dropdown_on_Link_Bank_Account_with_Micro_Deposits_page(String text1, String text2) {
+		linkBankAccountPage.select_VALUES_FROM_DROPDOWN(text1, text2);
+	}
+
+	@When("I click on Next button Link Bank Account with Micro Deposits page")
+	public void i_click_on_Next_button_Link_Bank_Account_with_Micro_Deposits_page() {
+		linkBankAccountPage.click_NEXT_BUTTON();
+	}
 
 }

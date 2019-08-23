@@ -102,4 +102,45 @@ public class LinkBankAccountPage {
 		CUtil.switchToTopFrame();
 	}
 
+	public void click_LINK_ACCOUNT_WITH_MICRO_DEPOSITES_BUTTON() {
+		CUtil.click(By.xpath(linkBankAccountPageElements.LINK_ACCOUNT_WITH_MICRO_DEPOSITES_BUTTON_XPATH));
+	}
+
+	public boolean is_LINK_BANK_ACCOUNT_WITH_MICRO_DEPOSITS_LABLE_DISPLAYED() {
+		return CUtil.isDisplayed(By.xpath(linkBankAccountPageElements.LINK_BANK_ACCOUNT_WITH_MICRO_DEPOSITS_LABLE));
+	}
+
+	public void type_BANK_ACCOUNT_NUMBER(String text) {
+		CUtil.type(By.xpath(linkBankAccountPageElements.BANK_ACCOUNT_NUMBER), text);
+	}
+
+	public void type_BANK_ROUTING_NUMBER(String text) {
+		CUtil.type(By.xpath(linkBankAccountPageElements.BANK_ROUTING_NUMBER), text);
+	}
+
+	public void type_BANK_ACCOUNT_OWNER_NAME(String text) {
+		CUtil.type(By.xpath(linkBankAccountPageElements.BANK_ACCOUNT_OWNER_NAME), text);
+	}
+
+	public void type_BANK_ACCOUNT_NICK_NAME(String text) {
+		CUtil.type(By.xpath(linkBankAccountPageElements.BANK_ACCOUNT_NICK_NAME), text);
+	}
+
+	public void select_VALUES_FROM_DROPDOWN(String option, String dropdown) {
+		By locator;
+		switch (dropdown) {
+		case "Bank Account Type":
+			locator = By.xpath(linkBankAccountPageElements.BANK_ACCOUNT_TYPE_DROPDOWN_XPATH);
+			CUtil.selectDropdown(locator, option);
+			break;
+		default:
+			break;
+		}
+		
+	}
+
+	public void click_NEXT_BUTTON() {
+		CUtil.click(By.xpath(linkBankAccountPageElements.NEXT_BUTTON_XPATH));
+	}
+
 }

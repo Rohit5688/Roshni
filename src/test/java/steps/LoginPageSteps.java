@@ -1,14 +1,12 @@
 package steps;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.java.en.Given;
 import page.LoginPage;
 import runner.SharedDriver;
-import utils.CUtil;
 
 public class LoginPageSteps {
 	private LoginPage loginPage;
