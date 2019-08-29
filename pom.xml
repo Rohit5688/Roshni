@@ -56,8 +56,10 @@
 								<browser>chrome</browser>
 								<os>windows</os>
 								<environment>QA</environment>
-								<osiris.qa.user>roshni.manda+2@trizic.com</osiris.qa.user>
+								<osiris.qa.user>roshni.manda+3@trizic.com</osiris.qa.user>
 								<osiris.qa.password>Test1234!!</osiris.qa.password>
+								<hyperion.qa.user>roshni.manda+apex@trizic.com</hyperion.qa.user>
+								<hyperion.qa.password>password</hyperion.qa.password>
 								<bank.qa.user>user_good</bank.qa.user>
 								<bank.qa.password>pass_good</bank.qa.password>
 							</systemPropertyVariables>

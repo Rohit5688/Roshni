@@ -87,7 +87,7 @@ Scenario: Verify IRA - Via Plaid
 	And I click on Next button Investment Profile page 
 	
 	Then I should see Account Information page 
-	When I type First Name as "0Ros0"
+	When I type First Name as "0Test1230"
 	And I type Last Name as "0md0"
 	And I type Date Of Birth as "12/24/1970" 
 	And I type Social Security Number as "666-00-1989" 
@@ -149,7 +149,19 @@ Scenario: Verify IRA - Via Plaid
 	And I select option as "Traditional IRA" in "Type IRA" dropdown on Signatures page
 	And I click on Next button Signatures page
 	
-	
+	Given I navigate to Login page of Hyperion
+  When I click Get Started Login button Hyperion landing page
+  Then I should see Login section hyperion
+  When I type Username as "default" for Hyperion
+  And I type Password as "default" for Hyperion
+  And I click Login button for Hyperion
+    
+  Then I should be at Hyperion Home page
+  When I click on Request Dashboard button
+  Then I should be at Request Dashboard page
+  When I click on Refresh button
+  And I click on Account with Name as "0Test1230"
+  Then I should see Account number as recorded text
 	
 	
 	

@@ -131,6 +131,21 @@ Scenario: Verify Individual Account- Via Plaid
 	And I click on Next button Signatures page
 	
 	
+	  Given I navigate to Login page of Hyperion
+    When I click Get Started Login button Hyperion landing page
+    Then I should see Login section hyperion
+    When I type Username as "default" for Hyperion
+    And I type Password as "default" for Hyperion
+    And I click Login button for Hyperion
+    
+    Then I should be at Hyperion Home page
+    When I click on Request Dashboard button
+    Then I should be at Request Dashboard page
+    When I click on Refresh button
+    And I click on Account with Name as "0Test1230"
+    Then I should see Account number as recorded text
+	
+	
 	
 	
 	

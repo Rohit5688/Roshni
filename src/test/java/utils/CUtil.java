@@ -18,6 +18,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
@@ -99,6 +100,22 @@ public class CUtil {
 
 	}
 
+	public static void waitForPageLoad() {
+		ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString()
+						.equals("complete");
+			}
+		};
+		try {
+			Thread.sleep(1000);
+			WebDriverWait wait = new WebDriverWait(webDriver, 30);
+			wait.until(expectation);
+		} catch (Throwable error) {
+			//
+		}
+	}
+
 	public static void waitForVisibleElement(final By by) {
 		WebDriverWait wait = new WebDriverWait(webDriver, WAITING_TIME);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
@@ -112,6 +129,12 @@ public class CUtil {
 	public static void waitForElementDisappear(final By by) {
 		WebDriverWait wait = new WebDriverWait(webDriver, WAITING_TIME);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+	}
+
+	// for staleness
+	public static void waitForElementToBeRefreshedAndClickable(final By by) {
+		WebDriverWait wait = new WebDriverWait(webDriver, WAITING_TIME);
+		wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(by)));
 	}
 
 	public static boolean waitUtilAtNextPage(String titlePage) {
@@ -231,6 +254,11 @@ public class CUtil {
 		actions.perform();
 	}
 
+	public static void actionClickNew(By by) {
+		Actions actions = new Actions(webDriver);
+		actions.click(webDriver.findElement(by)).build().perform();
+	}
+
 	public static void actionClick(WebElement element) {
 		Actions actions = new Actions(webDriver);
 		actions.moveToElement(element).click();
@@ -326,7 +354,7 @@ public class CUtil {
 		WebDriverWait wait = new WebDriverWait(webDriver, WAITING_TIME);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(index));
 	}
-	
+
 	public static void switchFrameByLocator(By by) {
 		WebDriverWait wait = new WebDriverWait(webDriver, WAITING_TIME);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(webDriver.findElement(by)));
@@ -334,6 +362,12 @@ public class CUtil {
 
 	public static void switchToTopFrame() {
 		webDriver.switchTo().defaultContent();
+	}
+
+	public static void seleniumClick(By by) {
+		javascript_highlight(by, "blue", "dotted", 3);
+		waitForElement(by);
+		webDriver.findElement(by).click();
 	}
 
 }
